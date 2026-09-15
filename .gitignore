@@ -1,0 +1,66 @@
+# macOS and editor-local files
+.DS_Store
+*.log
+*.swp
+*.tmp
+*~
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+
+# Dart, Flutter, and Pub generated files
+**/.dart_tool/
+**/.packages
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/.pub/
+**/.pub-cache/
+**/build/
+**/coverage/
+**/doc/api/
+**/lcov.info
+**/test-results/
+**/app.*.symbols
+**/app.*.map.json
+
+# Reusable plugin packages do not commit their root dependency lock file.
+/qs_widget/pubspec.lock
+
+# FVM SDK cache; keep .fvmrc and shared version configuration.
+**/.fvm/flutter_sdk
+
+# Local environment files; keep example templates.
+**/.env
+**/.env.*
+!**/.env.example
+
+# Android generated, local, and signing files
+**/android/.gradle/
+**/android/.cxx/
+**/android/local.properties
+**/android/captures/
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+**/android/app/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java
+**/android/key.properties
+**/*.keystore
+**/*.jks
+
+# iOS generated files and Xcode user state
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/DerivedData/
+**/ios/Flutter/.last_build_id
+**/ios/Flutter/Generated.xcconfig
+**/ios/Flutter/ephemeral/
+**/ios/Flutter/flutter_export_environment.sh
+**/ios/Runner/GeneratedPluginRegistrant.h
+**/ios/Runner/GeneratedPluginRegistrant.m
+**/ios/**/xcuserdata/
+**/ios/**/*.xcuserstate
+**/*.xcarchive
+**/*.ipa
+**/*.dSYM/
