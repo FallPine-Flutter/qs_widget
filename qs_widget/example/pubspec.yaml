@@ -1,5 +1,5 @@
 name: qs_widget_example
-description: "Demonstrates how to use the qs_widget plugin."
+description: "Demonstrates how to use the qs_widget package."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -21,8 +21,8 @@ dependencies:
     # When depending on this package from a real application you should use:
     #   qs_widget: ^x.y.z
     # See https://dart.dev/tools/pub/dependencies#version-constraints
-    # The example app is bundled with the plugin so we use a path dependency on
-    # the parent directory to use the current plugin's version.
+    # The example app is bundled with the package so we use a path dependency on
+    # the parent directory to use the current package's version.
     path: ../
 
   # The following adds the Cupertino Icons font to your application.
@@ -30,8 +30,6 @@ dependencies:
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
-  integration_test:
-    sdk: flutter
   flutter_test:
     sdk: flutter
 

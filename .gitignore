@@ -28,6 +28,12 @@
 # Reusable plugin packages do not commit their root dependency lock file.
 /qs_widget/pubspec.lock
 
+# Bundled example app dependency-resolution files are reproducible locally.
+**/example/pubspec.lock
+**/example/ios/Podfile
+**/example/ios/Flutter/Debug.xcconfig
+**/example/ios/Flutter/Release.xcconfig
+
 # FVM SDK cache; keep .fvmrc and shared version configuration.
 **/.fvm/flutter_sdk
 

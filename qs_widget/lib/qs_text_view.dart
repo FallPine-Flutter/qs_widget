@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 /// 无默认边框的轻量文本输入组件。
-class TextView extends StatelessWidget {
+class QsTextView extends StatelessWidget {
   /// 创建一个文本输入框。
   ///
   /// [controller] 用于读写输入内容，[placeholder] 为占位提示文字；
   /// 当 [keyboardType] 为 [TextInputType.number] 时仅允许输入数字。
-  const TextView({
+  const QsTextView({
     super.key,
     this.controller,
     this.placeholder,

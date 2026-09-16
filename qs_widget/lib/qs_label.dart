@@ -2,12 +2,12 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 /// 用于显示普通文本或自动缩放文本的标签组件。
-class Label extends StatelessWidget {
+class QsLabel extends StatelessWidget {
   /// 创建一个文本标签。
   ///
   /// [text] 为需要显示的文本；当 [isAutoSize] 为 `true` 时，
   /// 会使用 [AutoSizeText] 根据可用空间自动调整字号。
-  const Label({
+  const QsLabel({
     super.key,
     required this.text,
     this.isAutoSize = false,

@@ -3,10 +3,10 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:qs_widget/box.dart';
+import 'package:qs_widget/qs_box.dart';
 
 /// 图片资源类型。
-enum ImageType {
+enum QsImageType {
   /// Flutter 资源目录中的位图。
   asset,
 
@@ -21,11 +21,11 @@ enum ImageType {
 }
 
 /// 统一加载资源图片、SVG、网络图片和本地文件图片的组件。
-class ImageView extends StatelessWidget {
+class QsImageView extends StatelessWidget {
   /// 创建一个图片组件。
   ///
   /// [type] 指定图片来源类型，[imageSrc] 为对应的资源路径、网络地址或文件路径。
-  const ImageView({
+  const QsImageView({
     super.key,
     required this.type,
     required this.imageSrc,
@@ -50,7 +50,7 @@ class ImageView extends StatelessWidget {
   });
 
   /// 图片资源类型。
-  final ImageType type;
+  final QsImageType type;
 
   /// 图片资源路径、网络地址或本地文件路径。
   final String imageSrc;
@@ -111,7 +111,7 @@ class ImageView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Box(
+    return QsBox(
       width: width,
       height: height,
       padding: padding,
@@ -128,7 +128,7 @@ class ImageView extends StatelessWidget {
       child: Builder(
         builder: (context) {
           switch (type) {
-            case ImageType.asset:
+            case QsImageType.asset:
               return Image.asset(
                 imageSrc,
                 width: width,
@@ -141,7 +141,7 @@ class ImageView extends StatelessWidget {
                 },
               );
 
-            case ImageType.svg:
+            case QsImageType.svg:
               return SvgPicture.asset(
                 imageSrc,
                 width: width,
@@ -157,7 +157,7 @@ class ImageView extends StatelessWidget {
                 },
               );
 
-            case ImageType.network:
+            case QsImageType.network:
               return CachedNetworkImage(
                 imageUrl: imageSrc,
                 fit: fit,
@@ -170,7 +170,7 @@ class ImageView extends StatelessWidget {
                     : this.error!),
               );
 
-            case ImageType.file:
+            case QsImageType.file:
               return Image.file(
                 File(imageSrc),
                 width: width,

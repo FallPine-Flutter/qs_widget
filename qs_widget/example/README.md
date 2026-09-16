@@ -1,6 +1,6 @@
 # qs_widget_example
 
-Demonstrates how to use the qs_widget plugin.
+Demonstrates how to use the qs_widget package.
 
 ## Getting Started
 

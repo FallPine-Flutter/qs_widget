@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 /// 提供尺寸、间距、背景、边框、圆角和裁剪能力的容器组件。
-class Box extends StatelessWidget {
+class QsBox extends StatelessWidget {
   /// 创建一个通用容器。
   ///
   /// [outerRadius] 用于外层装饰圆角，[innerRadius] 用于子组件裁剪圆角；
   /// 当 [isCircle] 为 `true` 时，组件以圆形样式显示。
-  const Box({
+  const QsBox({
     super.key,
     this.width,
     this.height,

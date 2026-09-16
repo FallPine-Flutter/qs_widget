@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 /// 在当前应用的 [Overlay] 中显示和隐藏全局浮层。
-class KeyWindow {
+class QsKeyWindow {
   /// 显示一个浮层。
   ///
   /// [context] 用于获取当前 [Overlay]，[child] 为浮层内容；

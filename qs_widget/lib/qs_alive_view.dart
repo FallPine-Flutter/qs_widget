@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 /// 控制子组件是否在可滚动视图中保持存活的组件。
-class AliveView extends StatefulWidget {
+class QsAliveView extends StatefulWidget {
   /// 创建一个存活状态容器。
   ///
   /// [child] 为需要显示的子组件，[keepAlive] 决定其离开可视区域后是否保留状态。
-  const AliveView({super.key, required this.child, this.keepAlive = true});
+  const QsAliveView({super.key, required this.child, this.keepAlive = true});
 
   /// 需要保持状态并显示的子组件。
   final Widget child;
@@ -14,11 +14,11 @@ class AliveView extends StatefulWidget {
   final bool keepAlive;
 
   @override
-  State<AliveView> createState() => _AliveViewState();
+  State<QsAliveView> createState() => _QsAliveViewState();
 }
 
-/// [AliveView] 对应的状态对象。
-class _AliveViewState extends State<AliveView>
+/// [QsAliveView] 对应的状态对象。
+class _QsAliveViewState extends State<QsAliveView>
     with AutomaticKeepAliveClientMixin {
   @override
   Widget build(BuildContext context) {

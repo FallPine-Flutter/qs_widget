@@ -14,7 +14,7 @@
 
 ```yaml
 dependencies:
-  qs_widget: ^1.0.7
+  qs_widget: ^1.0.8
 ```
 
 然后执行：
@@ -26,20 +26,20 @@ flutter pub get
 当前组件按文件分别导出，使用时需要导入对应文件：
 
 ```dart
-import 'package:qs_widget/box.dart';
-import 'package:qs_widget/button.dart';
-import 'package:qs_widget/label.dart';
+import 'package:qs_widget/qs_box.dart';
+import 'package:qs_widget/qs_button.dart';
+import 'package:qs_widget/qs_label.dart';
 ```
 
-## Box
+## QsBox
 
-`Box` 是支持尺寸、间距、背景、边框、圆角、阴影、渐变、约束和内容裁剪的通用容器。
+`QsBox` 是支持尺寸、间距、背景、边框、圆角、阴影、渐变、约束和内容裁剪的通用容器。
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:qs_widget/box.dart';
+import 'package:qs_widget/qs_box.dart';
 
-const Box(
+const QsBox(
   width: 200,
   height: 100,
   padding: EdgeInsetsDirectional.all(16),
@@ -56,7 +56,7 @@ const Box(
       offset: Offset(0, 4),
     ),
   ],
-  child: Text('Box 内容'),
+  child: Text('QsBox 内容'),
 )
 ```
 
@@ -65,16 +65,16 @@ const Box(
 可以传入 `BorderRadiusDirectional` 适配 RTL 布局。存在边框时，内容裁剪圆角会结合边框宽度计算，
 避免子组件内容覆盖到边框区域。
 
-## Button
+## QsButton
 
-`Button` 支持普通、选中和禁用三种状态。
+`QsButton` 支持普通、选中和禁用三种状态。
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:qs_widget/button.dart';
-import 'package:qs_widget/label.dart';
+import 'package:qs_widget/qs_button.dart';
+import 'package:qs_widget/qs_label.dart';
 
-Button(
+QsButton(
   width: 160,
   height: 48,
   normalBackgroundColor: Colors.blue,
@@ -83,15 +83,15 @@ Button(
   outerRadius: BorderRadius.circular(8),
   isSelected: false,
   isEnabled: true,
-  normalChild: const Label(
+  normalChild: const QsLabel(
     text: '提交',
     textColor: Colors.white,
   ),
-  selectedChild: const Label(
+  selectedChild: const QsLabel(
     text: '已选择',
     textColor: Colors.white,
   ),
-  disabledChild: const Label(
+  disabledChild: const QsLabel(
     text: '不可用',
     textColor: Colors.white,
   ),
@@ -104,15 +104,15 @@ Button(
 未设置 `selectedChild` 或 `disabledChild` 时，会回退使用 `normalChild`。
 当 `isEnabled` 为 `false` 时，不会触发 `onTap`。
 
-## Label
+## QsLabel
 
-`Label` 用于显示普通文本，也可以根据可用空间自动缩放文字。
+`QsLabel` 用于显示普通文本，也可以根据可用空间自动缩放文字。
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:qs_widget/label.dart';
+import 'package:qs_widget/qs_label.dart';
 
-const Label(
+const QsLabel(
   text: '这是一段文本',
   textColor: Colors.black,
   fontSize: 16,
@@ -125,7 +125,7 @@ const Label(
 启用自动字号：
 
 ```dart
-const Label(
+const QsLabel(
   text: '文字会根据可用空间自动调整大小',
   isAutoSize: true,
   fontSize: 20,
@@ -136,36 +136,36 @@ const Label(
 如需显示不限制行数的多行文本，请同时设置：
 
 ```dart
-const Label(
+const QsLabel(
   text: '多行文本内容',
   maxLines: null,
   overflow: null,
 )
 ```
 
-## RichLabel
+## QsRichLabel
 
-`RichLabel` 可以为指定文字设置独立样式、点击事件和描边效果。
+`QsRichLabel` 可以为指定文字设置独立样式、点击事件和描边效果。
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:qs_widget/rich_label.dart';
+import 'package:qs_widget/qs_rich_label.dart';
 
-RichLabel(
+QsRichLabel(
   text: '阅读并同意用户协议和隐私政策',
   baseStyle: const TextStyle(
     color: Colors.black54,
     fontSize: 14,
   ),
   matchedStrings: {
-    '用户协议': RichLabelStyle(
+    '用户协议': QsRichLabelStyle(
       color: Colors.blue,
       decoration: TextDecoration.underline,
       onTap: () {
         debugPrint('点击用户协议');
       },
     ),
-    '隐私政策': RichLabelStyle(
+    '隐私政策': QsRichLabelStyle(
       color: Colors.blue,
       fontWeight: FontWeight.bold,
       onTap: () {
@@ -178,17 +178,17 @@ RichLabel(
 
 通过 `borderWidth` 和 `borderColor` 可以添加文字描边。
 
-## TextView
+## QsTextView
 
-`TextView` 是无默认边框的轻量文本输入框。
+`QsTextView` 是无默认边框的轻量文本输入框。
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:qs_widget/text_view.dart';
+import 'package:qs_widget/qs_text_view.dart';
 
 final controller = TextEditingController();
 
-TextView(
+QsTextView(
   controller: controller,
   placeholder: '请输入手机号',
   keyboardType: TextInputType.number,
@@ -207,19 +207,19 @@ TextView(
 当 `keyboardType` 为 `TextInputType.number` 时，组件只允许输入数字。
 默认隐藏字符计数器，可通过 `isShowCounterText: true` 显示。
 
-## KeyboardAvoidanceView
+## QsKeyboardAvoidanceView
 
-`KeyboardAvoidanceView` 仅移动其内部被键盘遮挡的输入区域，不会将整个页面向上顶起。
+`QsKeyboardAvoidanceView` 仅移动其内部被键盘遮挡的输入区域，不会将整个页面向上顶起。
 使用时需要将页面的 `resizeToAvoidBottomInset` 设置为 `false`，并确保组件的父布局
 有足够空间供内容上移。
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:qs_widget/keyboard_avoidance_view.dart';
+import 'package:qs_widget/qs_keyboard_avoidance_view.dart';
 
 Scaffold(
   resizeToAvoidBottomInset: false,
-  body: KeyboardAvoidanceView(
+  body: QsKeyboardAvoidanceView(
     spacing: 16,
     duration: const Duration(milliseconds: 250),
     curve: Curves.easeOutCubic,
@@ -238,17 +238,17 @@ Scaffold(
 滚动距离不足时，再将剩余内容向上平移。可通过 `enabled` 动态启用或关闭避让，
 通过 `spacing` 设置输入框与键盘之间的额外间距。
 
-## ImageView
+## QsImageView
 
-`ImageView` 统一支持资源图片、SVG、网络图片和本地文件图片。
+`QsImageView` 统一支持资源图片、SVG、网络图片和本地文件图片。
 
 ### 资源图片
 
 ```dart
-import 'package:qs_widget/image_view.dart';
+import 'package:qs_widget/qs_image_view.dart';
 
-const ImageView(
-  type: ImageType.asset,
+const QsImageView(
+  type: QsImageType.asset,
   imageSrc: 'assets/images/avatar.png',
   width: 80,
   height: 80,
@@ -259,8 +259,8 @@ const ImageView(
 ### SVG 图片
 
 ```dart
-const ImageView(
-  type: ImageType.svg,
+const QsImageView(
+  type: QsImageType.svg,
   imageSrc: 'assets/images/icon.svg',
   width: 24,
   height: 24,
@@ -271,10 +271,10 @@ const ImageView(
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:qs_widget/image_view.dart';
+import 'package:qs_widget/qs_image_view.dart';
 
-ImageView(
-  type: ImageType.network,
+QsImageView(
+  type: QsImageType.network,
   imageSrc: 'https://example.com/image.png',
   width: 200,
   height: 120,
@@ -287,8 +287,8 @@ ImageView(
 ### 本地文件图片
 
 ```dart
-ImageView(
-  type: ImageType.file,
+QsImageView(
+  type: QsImageType.file,
   imageSrc: imageFile.path,
   width: 120,
   height: 120,
@@ -299,20 +299,20 @@ ImageView(
 
 | 类型 | `imageSrc` 内容 |
 | --- | --- |
-| `ImageType.asset` | Flutter 资源路径 |
-| `ImageType.svg` | Flutter SVG 资源路径 |
-| `ImageType.network` | 网络图片 URL |
-| `ImageType.file` | 设备本地文件路径 |
+| `QsImageType.asset` | Flutter 资源路径 |
+| `QsImageType.svg` | Flutter SVG 资源路径 |
+| `QsImageType.network` | 网络图片 URL |
+| `QsImageType.file` | 设备本地文件路径 |
 
-## SwitchButton
+## QsSwitchButton
 
-`SwitchButton` 使用白色滑块，并隐藏默认轨道轮廓。
+`QsSwitchButton` 使用白色滑块，并隐藏默认轨道轮廓。
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:qs_widget/switch_button.dart';
+import 'package:qs_widget/qs_switch_button.dart';
 
-SwitchButton(
+QsSwitchButton(
   value: isEnabled,
   activeTrackColor: Colors.blue,
   inactiveTrackColor: Colors.grey.shade300,
@@ -324,14 +324,14 @@ SwitchButton(
 )
 ```
 
-## AliveView
+## QsAliveView
 
-`AliveView` 用于在 `TabBarView`、`PageView` 等可滚动视图中保留子组件状态。
+`QsAliveView` 用于在 `TabBarView`、`PageView` 等可滚动视图中保留子组件状态。
 
 ```dart
-import 'package:qs_widget/alive_view.dart';
+import 'package:qs_widget/qs_alive_view.dart';
 
-const AliveView(
+const QsAliveView(
   keepAlive: true,
   child: YourPage(),
 )
@@ -339,16 +339,16 @@ const AliveView(
 
 设置 `keepAlive: false` 可以关闭状态保活。
 
-## KeyWindow
+## QsKeyWindow
 
-`KeyWindow` 通过 `Overlay` 显示全局浮层。同一时间只保留一个浮层，
+`QsKeyWindow` 通过 `Overlay` 显示全局浮层。同一时间只保留一个浮层，
 重复调用 `show` 会先移除已有内容。
 
 ```dart
 import 'package:flutter/material.dart';
-import 'package:qs_widget/key_window.dart';
+import 'package:qs_widget/qs_key_window.dart';
 
-KeyWindow.show(
+QsKeyWindow.show(
   context: context,
   top: 100,
   right: 16,
@@ -369,17 +369,7 @@ KeyWindow.show(
 隐藏浮层：
 
 ```dart
-KeyWindow.hide();
-```
-
-## 平台版本
-
-插件保留了获取当前平台版本的接口：
-
-```dart
-import 'package:qs_widget/qs_widget.dart';
-
-final version = await QsWidget().getPlatformVersion();
+QsKeyWindow.hide();
 ```
 
 ## 许可证

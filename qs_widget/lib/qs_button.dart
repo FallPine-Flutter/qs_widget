@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:qs_widget/box.dart';
+import 'package:qs_widget/qs_box.dart';
 
 /// 支持普通、选中和禁用状态的按钮组件。
-class Button extends StatelessWidget {
+class QsButton extends StatelessWidget {
   /// 创建一个多状态按钮。
   ///
   /// [normalChild]、[selectedChild] 和 [disabledChild] 分别对应不同状态的内容；
   /// [onTap] 仅在 [isEnabled] 为 `true` 时触发。
-  const Button({
+  const QsButton({
     super.key,
     this.width,
     this.height,
@@ -97,7 +97,7 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Box(
+    return QsBox(
       width: width,
       height: height,
       padding: padding,
@@ -126,7 +126,7 @@ class Button extends StatelessWidget {
   }
 }
 
-/// [Button] 内部使用的透明基础按钮样式。
+/// [QsButton] 内部使用的透明基础按钮样式。
 ButtonStyle kBaseButtonStyle = ButtonStyle(
   tapTargetSize: MaterialTapTargetSize.shrinkWrap,
   minimumSize: WidgetStateProperty.all(Size.zero),

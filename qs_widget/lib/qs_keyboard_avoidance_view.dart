@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 // 方法一：resizeToAvoidBottomInset: true
 // 这个方法会把整个页面都往上顶
 //
-// 方法二：使用KeyboardAvoidanceView，把resizeToAvoidBottomInset: false
-// 这个只会把KeyboardAvoidanceView里面的Widget往上顶，其他Widget不会往上顶
-// 要确保KeyboardAvoidanceView里面的Widget的父组件，有足够的位置让它往上顶
+// 方法二：使用QsKeyboardAvoidanceView，把resizeToAvoidBottomInset: false
+// 这个只会把QsKeyboardAvoidanceView里面的Widget往上顶，其他Widget不会往上顶
+// 要确保QsKeyboardAvoidanceView里面的Widget的父组件，有足够的位置让它往上顶
 
-class KeyboardAvoidanceView extends StatefulWidget {
-  const KeyboardAvoidanceView({
+class QsKeyboardAvoidanceView extends StatefulWidget {
+  const QsKeyboardAvoidanceView({
     required this.child,
     this.enabled = true,
     this.spacing = 0,
@@ -24,7 +24,8 @@ class KeyboardAvoidanceView extends StatefulWidget {
 
   /// System Funcs
   @override
-  State<KeyboardAvoidanceView> createState() => _KeyboardAvoidanceViewState();
+  State<QsKeyboardAvoidanceView> createState() =>
+      _QsKeyboardAvoidanceViewState();
 
   /// Properties
   final Widget child;
@@ -34,7 +35,7 @@ class KeyboardAvoidanceView extends StatefulWidget {
   final Curve curve;
 }
 
-class _KeyboardAvoidanceViewState extends State<KeyboardAvoidanceView>
+class _QsKeyboardAvoidanceViewState extends State<QsKeyboardAvoidanceView>
     with WidgetsBindingObserver {
   /// System Funcs
   @override
@@ -46,7 +47,7 @@ class _KeyboardAvoidanceViewState extends State<KeyboardAvoidanceView>
   }
 
   @override
-  void didUpdateWidget(covariant KeyboardAvoidanceView oldWidget) {
+  void didUpdateWidget(covariant QsKeyboardAvoidanceView oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.enabled != widget.enabled ||
         oldWidget.spacing != widget.spacing) {

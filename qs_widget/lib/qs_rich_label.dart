@@ -2,12 +2,12 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 /// 支持局部样式、点击事件和文字描边的富文本标签。
-class RichLabel extends StatelessWidget {
+class QsRichLabel extends StatelessWidget {
   /// 创建一个富文本标签。
   ///
   /// [text] 为完整文本，[matchedStrings] 的键为需要匹配的文字，
   /// 值用于配置匹配文字的样式和点击事件。
-  const RichLabel({
+  const QsRichLabel({
     super.key,
     required this.text,
     this.baseStyle,
@@ -29,7 +29,7 @@ class RichLabel extends StatelessWidget {
   final TextAlign textAlign;
 
   /// 待匹配文字与对应样式的映射。
-  final Map<String, RichLabelStyle>? matchedStrings;
+  final Map<String, QsRichLabelStyle>? matchedStrings;
 
   /// 最大显示行数。
   final int? maxLines;
@@ -106,7 +106,7 @@ class RichLabel extends StatelessWidget {
   /// [isStroke] 表示是否为匹配片段应用描边样式。
   List<TextSpan> _buildTextSpans({bool isStroke = false}) {
     final List<TextSpan> spans = [];
-    final List<_MatchResult> matches = _findAllMatches();
+    final List<_QsMatchResult> matches = _findAllMatches();
 
     // 如果没有匹配结果，返回整个文本
     if (matches.isEmpty) {
@@ -154,8 +154,8 @@ class RichLabel extends StatelessWidget {
   }
 
   /// 查找所有匹配文字，并过滤位置重叠的结果。
-  List<_MatchResult> _findAllMatches() {
-    final List<_MatchResult> allMatches = [];
+  List<_QsMatchResult> _findAllMatches() {
+    final List<_QsMatchResult> allMatches = [];
 
     for (final entry in matchedStrings!.entries) {
       final pattern = entry.key;
@@ -171,7 +171,11 @@ class RichLabel extends StatelessWidget {
         if (index == -1) break;
 
         allMatches.add(
-          _MatchResult(start: index, end: index + pattern.length, style: style),
+          _QsMatchResult(
+            start: index,
+            end: index + pattern.length,
+            style: style,
+          ),
         );
 
         startIndex = index + pattern.length;
@@ -188,10 +192,12 @@ class RichLabel extends StatelessWidget {
   /// 移除位置重叠的匹配项。
   ///
   /// [matches] 必须已按照起始位置升序排列。
-  List<_MatchResult> _resolveOverlappingMatches(List<_MatchResult> matches) {
+  List<_QsMatchResult> _resolveOverlappingMatches(
+    List<_QsMatchResult> matches,
+  ) {
     if (matches.isEmpty) return matches;
 
-    final List<_MatchResult> result = [matches.first];
+    final List<_QsMatchResult> result = [matches.first];
 
     for (int i = 1; i < matches.length; i++) {
       final current = matches[i];
@@ -208,7 +214,7 @@ class RichLabel extends StatelessWidget {
 }
 
 /// 富文本匹配样式
-class RichLabelStyle {
+class QsRichLabelStyle {
   /// 匹配文字的颜色。
   final Color? color;
 
@@ -237,7 +243,7 @@ class RichLabelStyle {
   final VoidCallback? onTap;
 
   /// 创建一组富文本匹配样式。
-  const RichLabelStyle({
+  const QsRichLabelStyle({
     this.color,
     this.fontWeight,
     this.fontSize,
@@ -264,7 +270,7 @@ class RichLabelStyle {
 }
 
 /// 匹配结果类
-class _MatchResult {
+class _QsMatchResult {
   /// 匹配内容在完整文本中的起始索引。
   final int start;
 
@@ -272,10 +278,10 @@ class _MatchResult {
   final int end;
 
   /// 匹配内容使用的样式。
-  final RichLabelStyle style;
+  final QsRichLabelStyle style;
 
   /// 创建一个文本匹配结果。
-  const _MatchResult({
+  const _QsMatchResult({
     required this.start,
     required this.end,
     required this.style,
